@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@components": "/src/components/index.tsx",
-      "@pages": "/src/components/pages.tsx",
+      "@pages": "/src/pages/index.tsx",
     },
   },
 });
