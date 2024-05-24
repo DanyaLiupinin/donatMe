@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "@components": ["components/index.tsx"],
-      "@pages": ["pages/index.tsx"]
-    }
-  }
-}

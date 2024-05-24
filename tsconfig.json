@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -14,7 +13,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "src",
+    "paths": {
+      "@components": ["components/index.tsx"],
+      "@pages": ["pages/index.tsx"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
