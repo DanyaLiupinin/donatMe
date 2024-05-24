@@ -3,6 +3,7 @@ import {
   isWalletInfoRemote,
 } from "@tonconnect/ui-react";
 import { connector } from "../../connector";
+import { Section } from "../../components/Section/Section";
 
 export const TonWalletsList = ({ walletList }: any) => {
   const onClickWallet = (walletInfo: any) => {
@@ -18,7 +19,7 @@ export const TonWalletsList = ({ walletList }: any) => {
   };
 
   return (
-    <div className="w-[90%] h-[90%] outline outline-1 outline-[#d289ffa6] flex justify-center flex-col p-[10px] gap-3 bg-[#d289ff5e]">
+    <Section>
       {walletList &&
         walletList.map((wallet: any, index: number) => (
           <div
@@ -30,6 +31,6 @@ export const TonWalletsList = ({ walletList }: any) => {
             <p className="text-white">{wallet.name}</p>
           </div>
         ))}
-    </div>
+    </Section>
   );
 };
