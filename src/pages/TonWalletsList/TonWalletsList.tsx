@@ -18,7 +18,7 @@ export const TonWalletsList = ({ walletList }: any) => {
   };
 
   return (
-    <div className="w-fit outline outline-1 flex justify-center flex-col">
+    <div className="w-[90%] h-[90%] outline outline-1 outline-[#d289ffa6] flex justify-center flex-col p-[10px] gap-3 bg-[#d289ff5e]">
       {walletList &&
         walletList.map((wallet: any, index: number) => (
           <div
@@ -27,7 +27,7 @@ export const TonWalletsList = ({ walletList }: any) => {
             key={index}
           >
             <img src={wallet.imageUrl} alt="" className="w-[20px] h-[20px]" />
-            <p>{wallet.name}</p>
+            <p className="text-white">{wallet.name}</p>
           </div>
         ))}
     </div>
