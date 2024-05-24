@@ -4,6 +4,7 @@ import {
 } from "@tonconnect/ui-react";
 import { connector } from "../../connector";
 import { Section } from "../../components/Section/Section";
+import { WalletBadge } from "../../components/WalletBadge/WalletBadge";
 
 export const TonWalletsList = ({ walletList }: any) => {
   const onClickWallet = (walletInfo: any) => {
@@ -23,14 +24,11 @@ export const TonWalletsList = ({ walletList }: any) => {
       <div className="m-auto flex flex-col gap-3">
         {walletList &&
           walletList.map((wallet: any, index: number) => (
-            <div
-              onClick={() => onClickWallet(wallet)}
-              className="flex between-content items-center gap-3 bg-[#73abff4a] p-2 rounded"
+            <WalletBadge
               key={index}
-            >
-              <img src={wallet.imageUrl} alt="" className="w-[20px] h-[20px]" />
-              <p className="text-white">{wallet.name}</p>
-            </div>
+              wallet={wallet}
+              onClickWallet={onClickWallet}
+            />
           ))}
       </div>
     </Section>
