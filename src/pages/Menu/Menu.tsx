@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import { useWallet } from "../../hooks/useWallet";
 
 export const Menu = () => {
+  const wallet = useWallet();
+
+  console.log(wallet);
+
   return (
     <div>
+      {wallet && <p className="text-white">{wallet}</p>}
       <Link
         to="/ton-wallets"
         className="text-white outline outline-1 outline-white p-2 fixed top-5 right-5"

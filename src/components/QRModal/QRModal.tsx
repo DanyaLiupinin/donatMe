@@ -37,7 +37,7 @@ export const QRModal: FC<IQRProps> = ({ isOpen, onClose, walletInfo }) => {
         >
           Close
         </button>
-        <ReactQrCode value={walletConnectionUrl} />
+        <ReactQrCode renderAs="svg" value={walletConnectionUrl} />
         <Link
           to="/"
           onClick={onClickConnect}
