@@ -3,8 +3,7 @@ import {
   isWalletInfoRemote,
 } from "@tonconnect/ui-react";
 import { connector } from "../../connector";
-import { Section } from "../../components/Section/Section";
-import { WalletBadge } from "../../components/WalletBadge/WalletBadge";
+import { Section, WalletBadge } from "@components";
 
 export const TonWalletsList = ({ walletList }: any) => {
   const onClickWallet = (walletInfo: any) => {
