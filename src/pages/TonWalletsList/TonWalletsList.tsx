@@ -19,7 +19,7 @@ export const TonWalletsList = ({ walletList }: any) => {
   };
 
   return (
-    <Section>
+    <div className="absolute mx-auto my-auto top-0 left-0 right-0 bottom-0 w-[90%] h-[90%] flex justify-center flex-col p-[10px] gap-3">
       <div className="m-auto flex flex-col gap-3">
         {walletList &&
           walletList.map((wallet: any, index: number) => (
@@ -30,6 +30,6 @@ export const TonWalletsList = ({ walletList }: any) => {
             />
           ))}
       </div>
-    </Section>
+    </div>
   );
 };
