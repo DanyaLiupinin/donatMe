@@ -1,16 +1,39 @@
 import { Link } from "react-router-dom";
 import { useWallet } from "../../hooks/useWallet";
+import { toUserFriendlyAddress } from "@tonconnect/sdk";
+import { useState } from "react";
+import { connector } from "../../connector";
 
 export const Menu = () => {
-  const wallet: any = useWallet();
+  const [isSelectOpened, setSelectOpened] = useState(false);
 
-  console.log("wa");
-  console.log(wallet);
+  const wallet: any = useWallet();
+  const userFriendlyAddress = wallet
+    ? toUserFriendlyAddress(wallet.account.address)
+    : "";
+  const slicedAddress =
+    userFriendlyAddress.slice(0, 4) + "..." + userFriendlyAddress.slice(-4);
+
+  const onDisconnectWallet = async () => {
+    await connector.disconnect();
+  };
 
   return (
     <div>
       {wallet ? (
-        <p className="text-white">{wallet?.account?.address}</p>
+        <div className="flex flex-col w-fit absolute right-2">
+          <p
+            onClick={() => setSelectOpened(!isSelectOpened)}
+            className="text-white text-end"
+          >
+            {slicedAddress}
+          </p>
+          {isSelectOpened && (
+            <div className="bg-white rounded">
+              <button onClick={onDisconnectWallet}>Disconnect</button>
+            </div>
+          )}
+        </div>
       ) : (
         <Link
           to="/ton-wallets"
