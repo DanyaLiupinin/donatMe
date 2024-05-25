@@ -31,9 +31,9 @@ export const TonWalletsList = ({ walletList }: any) => {
 
   useEffect(() => {
     if (wallet && selectedWallet) {
+      onCloseQRModal();
       setIsSpinner(true);
       setTimeout(() => {
-        onCloseQRModal();
         setIsSpinner(false);
         navigate("/");
         window.location.reload();

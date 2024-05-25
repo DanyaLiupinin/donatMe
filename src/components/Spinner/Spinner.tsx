@@ -6,5 +6,13 @@ interface ISpinnerProps {
 }
 
 export const Spinner: FC<ISpinnerProps> = ({ loading }) => {
-  return <PuffLoader loading={loading} color="#6373ec" />;
+  return (
+    <>
+      {loading && (
+        <div className="bg-[#0e0d0db5] z-20 absolute top-0 left-0 bottom-0 right-0 my-auto mx-auto flex justify-center items-center">
+          <PuffLoader loading={loading} color="#f07cfa" />
+        </div>
+      )}
+    </>
+  );
 };
