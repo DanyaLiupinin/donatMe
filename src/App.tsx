@@ -4,6 +4,7 @@ import { connector } from './connector';
 import { TonWalletsList, Menu, Transaction } from '@pages';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useLoggedIn, useWallet } from '@hooks';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   const [walletList, setWalletList] = useState<any>();
@@ -19,13 +20,15 @@ function App() {
 
   return (
     <div className=" bg-black h-[100vh]">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Menu wallet={wallet} />} />
-          <Route path="/ton-wallets" element={<TonWalletsList walletList={walletList} />} />
-          <Route path="/transaction" element={<Transaction />} />
-        </Routes>
-      </Router>
+      <ChakraProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Menu wallet={wallet} />} />
+            <Route path="/ton-wallets" element={<TonWalletsList walletList={walletList} />} />
+            <Route path="/transaction" element={<Transaction />} />
+          </Routes>
+        </Router>
+      </ChakraProvider>
     </div>
   );
 }

@@ -1,13 +1,10 @@
-import { connector } from "../../connector";
-import { WalletBadge, QRModal, Spinner } from "@components";
-import {
-  isWalletInfoCurrentlyInjected,
-  isWalletInfoRemote,
-} from "@tonconnect/sdk";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useWallet } from "@hooks";
-import { useNavigate } from "react-router-dom";
+import { connector } from '../../connector';
+import { WalletBadge, QRModal, Spinner } from '@components';
+import { isWalletInfoCurrentlyInjected, isWalletInfoRemote } from '@tonconnect/sdk';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useWallet } from '@hooks';
+import { useNavigate } from 'react-router-dom';
 
 export const TonWalletsList = ({ walletList }: any) => {
   const [selectedWallet, setSelectedWallet] = useState<any>();
@@ -15,7 +12,7 @@ export const TonWalletsList = ({ walletList }: any) => {
   const wallet = useWallet();
   const navigate = useNavigate();
 
-  const onCloseQRModal = () => setSelectedWallet("");
+  const onCloseQRModal = () => setSelectedWallet('');
 
   const onClickWallet = (walletInfo: any) => {
     if (isWalletInfoRemote(walletInfo)) {
@@ -26,7 +23,7 @@ export const TonWalletsList = ({ walletList }: any) => {
       return connector.connect({ jsBridgeKey: walletInfo.jsBridgeKey });
     }
 
-    window.open(walletInfo.aboutUrl, "_blank");
+    window.open(walletInfo.aboutUrl, '_blank');
   };
 
   useEffect(() => {
@@ -35,7 +32,7 @@ export const TonWalletsList = ({ walletList }: any) => {
       setIsSpinner(true);
       setTimeout(() => {
         setIsSpinner(false);
-        navigate("/");
+        navigate('/');
         window.location.reload();
       }, 2000);
     }
@@ -50,18 +47,11 @@ export const TonWalletsList = ({ walletList }: any) => {
           Back
         </Link>
         <div className="m-auto flex flex-col gap-3">
-          <QRModal
-            isOpen={selectedWallet ? true : false}
-            onClose={onCloseQRModal}
-            walletInfo={selectedWallet}
-          />
+          <QRModal isOpen={selectedWallet ? true : false} onClose={onCloseQRModal} walletInfo={selectedWallet} />
           {walletList &&
+            walletList.length > 0 &&
             walletList.map((wallet: any, index: number) => (
-              <WalletBadge
-                key={index}
-                wallet={wallet}
-                onClickWallet={onClickWallet}
-              />
+              <WalletBadge key={index} wallet={wallet} onClickWallet={onClickWallet} />
             ))}
         </div>
       </div>
