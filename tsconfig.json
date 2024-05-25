@@ -17,7 +17,8 @@
     "paths": {
       "@components": ["components/index.tsx"],
       "@pages": ["pages/index.tsx"],
-      "@features": ["features/index.tsx"]
+      "@features": ["features/index.tsx"],
+      "@hooks": ["hooks/index.tsx"]
     },
     /* Linting */
     "strict": true,

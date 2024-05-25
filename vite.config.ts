@@ -9,6 +9,7 @@ export default defineConfig({
       "@components": "/src/components/index.tsx",
       "@pages": "/src/pages/index.tsx",
       "@features": "/src/features/index.tsx",
+      "@hooks": "/src/hooks/index.tsx",
     },
   },
 });
