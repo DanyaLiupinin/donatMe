@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { connector } from "./connector";
-import { TonWalletsList, Menu } from "@pages";
+import { TonWalletsList, Menu, Transaction } from "@pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
             path="/ton-wallets"
             element={<TonWalletsList walletList={walletList} />}
           />
+          <Route path="/transaction" element={<Transaction />} />
         </Routes>
       </Router>
     </div>
