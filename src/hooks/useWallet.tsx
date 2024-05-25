@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { connector } from "../connector";
+import { useEffect, useState } from 'react';
+import { connector } from '../connector';
 
 export const useWallet = () => {
   const [wallet, setWallet] = useState(null);
