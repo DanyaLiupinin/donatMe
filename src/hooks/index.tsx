@@ -1,3 +1,3 @@
 export * from './useWallet';
 export * from './useSendTransaction';
-export * from './useLoggedIn';
+export * from './useWallet2';
