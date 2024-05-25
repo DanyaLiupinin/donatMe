@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       "@components": "/src/components/index.tsx",
       "@pages": "/src/pages/index.tsx",
+      "@features": "/src/features/index.tsx",
     },
   },
 });

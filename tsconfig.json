@@ -16,7 +16,8 @@
     "baseUrl": "src",
     "paths": {
       "@components": ["components/index.tsx"],
-      "@pages": ["pages/index.tsx"]
+      "@pages": ["pages/index.tsx"],
+      "@features": ["features/index.tsx"]
     },
     /* Linting */
     "strict": true,
