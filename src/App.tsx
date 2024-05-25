@@ -3,7 +3,7 @@ import './App.css';
 import { connector } from './connector';
 import { TonWalletsList, Menu, Transaction } from '@pages';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useWallet, useWallet2 } from '@hooks';
+import { useWallet } from '@hooks';
 import { ChakraProvider } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import { toUserFriendlyAddress } from '@tonconnect/sdk';
