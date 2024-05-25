@@ -18,6 +18,8 @@ export const Menu = () => {
     await connector.disconnect();
   };
 
+  console.log(wallet);
+
   return (
     <div>
       {wallet ? (
