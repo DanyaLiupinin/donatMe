@@ -6,14 +6,25 @@ import { UserRejectsError } from '@tonconnect/sdk';
 export const useSendTransaction = () => {
   const [userConfirmedTransaction, setUserConfirmedTransaction] = useState(false);
 
-  const sendTransaction = async () => {
+  const sendTransaction = async ({ amount }: { amount: number }) => {
     setUserConfirmedTransaction(true);
+
+    const tokenAmount = `${amount}000000000`;
+    const comission = Number(`${amount}000000000`) * 0.03;
+    console.log(amount);
+    console.log(tokenAmount);
+    console.log(comission);
+
     const tx = {
       validUntil: Math.round(Date.now() / 1000) + 600,
       messages: [
         {
           address: '0:' + '0'.repeat(64),
-          amount: '100000'
+          amount: String(tokenAmount)
+        },
+        {
+          address: '0:' + '0'.repeat(64),
+          amount: String(comission)
         }
       ]
     };
@@ -45,6 +56,5 @@ export const useSendTransaction = () => {
       setUserConfirmedTransaction(false);
     }
   };
-
   return [sendTransaction, userConfirmedTransaction] as const;
 };

@@ -15,11 +15,14 @@ export const TonWalletsList = ({ walletList }: any) => {
   const onCloseQRModal = () => setSelectedWallet('');
 
   const onClickWallet = (walletInfo: any) => {
+    console.log(walletInfo);
     if (isWalletInfoRemote(walletInfo)) {
       return setSelectedWallet(walletInfo);
     }
 
     if (isWalletInfoCurrentlyInjected(walletInfo)) {
+      // spinner
+      // после подключения - редирект
       return connector.connect({ jsBridgeKey: walletInfo.jsBridgeKey });
     }
 

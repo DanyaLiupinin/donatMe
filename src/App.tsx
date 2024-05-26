@@ -19,6 +19,7 @@ function App() {
     : null;
 
   const wallet: any = useWallet();
+  console.log(connector);
 
   useEffect(() => {
     connector.getWallets().then((res) => {
